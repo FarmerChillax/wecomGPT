@@ -23,7 +23,8 @@ type ChatGptConfig struct {
 }
 
 type WecomConfig struct {
-	RobotKey string `json:"robot_key,omitempty" mapstructure:"robot_key,omitempty" yaml:"robot_key"`
+	RobotKey      string `json:"robot_key,omitempty" mapstructure:"robot_key,omitempty" yaml:"robot_key"`
+	ReplyTemplate string `json:"reply_template,omitempty" mapstructure:"reply_template,omitempty" yaml:"reply_template"`
 }
 
 func LoadConfig() error {

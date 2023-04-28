@@ -5,7 +5,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"text/template"
@@ -14,16 +13,14 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+const TEMPLATE = `> {{ .Question }}
+回答: {{ .Reply }}`
+
 func SendMsg(ctx context.Context, question, reply string) error {
 	// 从配置中读取 key
 	key := config.GetWecomRobotKey()
 	//将回答渲染到模版中
-	tempContent, err := ioutil.ReadFile("./wecom/markdown.tmpl")
-	if err != nil {
-		return err
-	}
-
-	tmpl, err := template.New("wecomReply").Parse(string(tempContent))
+	tmpl, err := template.New("wecomReply").Parse(string(TEMPLATE))
 	if err != nil {
 		log.Errorf("SendMsg.template.New(wecomReply).ParseFiles err: %v", err)
 		return err
