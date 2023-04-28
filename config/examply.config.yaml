@@ -1,0 +1,6 @@
+chatgpt:
+  # 在下方填入 openai 的 token
+  token: sk-233dkajdoaskdomUe1234567890MDQnkqW1cueUlapsakd
+wecom:
+  # 企微群机器人的 key
+  robot_key: 233333-1234-4320-6666-1234f9a58123b
